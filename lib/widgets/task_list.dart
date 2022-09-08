@@ -4,7 +4,7 @@ import 'package:todoey_flutter/models/task.dart';
 
 class TaskList extends StatefulWidget {
   List<Task>? tasks;
-  TaskList({required this.tasks});
+  TaskList({Key? key, required this.tasks}) : super(key: key);
 
   @override
   State<TaskList> createState() => _TaskListState();

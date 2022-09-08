@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todoey_flutter/widgets/task_list.dart';
 
 class AddTaskScreen extends StatefulWidget {
+  const AddTaskScreen({Key? key}) : super(key: key);
+
   @override
   State<AddTaskScreen> createState() => _AddTaskScreenState();
 }
@@ -13,7 +14,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
+        const Text(
           'Add Task',
           style: TextStyle(
             fontSize: 50.0,
@@ -24,8 +25,9 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
         TextField(
           autofocus: true,
           textAlign: TextAlign.center,
-          decoration: InputDecoration(
-            filled: true,
+          decoration: const InputDecoration(
+            //fillColor: Colors.red,
+            //filled: true,
             hintText: 'Add new task',
           ),
           onChanged: (value) {
@@ -36,12 +38,12 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
           onPressed: () {
             Navigator.pop(context, nameTask); //Passing value Backward
           },
-          child: Text(
+          child: const Text(
             'Add',
             style: TextStyle(),
           ),
           style: TextButton.styleFrom(
-            //Chane textbutton Colors
+            //Chane textButton Colors
             primary: Colors.white,
             backgroundColor: Colors.lightBlueAccent,
           ),

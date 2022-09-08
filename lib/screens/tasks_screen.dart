@@ -1,10 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todoey_flutter/screens/add_task_screen.dart';
 import 'package:todoey_flutter/widgets/task_list.dart';
 import 'package:todoey_flutter/models/task.dart';
 
 class TasksScreen extends StatefulWidget {
+  const TasksScreen({Key? key}) : super(key: key);
+
   @override
   State<TasksScreen> createState() => _TasksScreenState();
 }
@@ -25,20 +26,20 @@ class _TasksScreenState extends State<TasksScreen> {
         onPressed: () async {
           //REceiving value from pop()->addtaskscreen
           var nameTask = await showModalBottomSheet(
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20.0),
                   topRight: Radius.circular(20.0),
                   bottomRight: Radius.zero,
                   bottomLeft: Radius.zero),
             ),
-            isScrollControlled: true,
+            isScrollControlled: true, // if child is Scrollable like listview
             context: context,
             builder: (context) => SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: AddTaskScreen(),
+                child: const AddTaskScreen(),
               ),
             ),
           );
@@ -49,7 +50,7 @@ class _TasksScreenState extends State<TasksScreen> {
           });
         },
         backgroundColor: Colors.lightBlueAccent,
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +59,7 @@ class _TasksScreenState extends State<TasksScreen> {
             padding: const EdgeInsets.all(30.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: const [
                 CircleAvatar(
                   backgroundColor: Colors.white,
                   radius: 30.0,
@@ -90,8 +91,8 @@ class _TasksScreenState extends State<TasksScreen> {
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.all(14.0),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.all(14.0),
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10.0),

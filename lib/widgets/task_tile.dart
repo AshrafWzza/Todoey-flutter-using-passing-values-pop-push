@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-// important there is no need to do like in course(check scroll down)  that create statlessWidget And statefulWidget then Passing values
+// important there is no need to do like in course(check scroll down)  that create statelessWidget And statefulWidget then Passing values
 class TaskTile extends StatefulWidget {
   String title;
   bool checkedBox;
-  TaskTile({required this.title, this.checkedBox = false});
+  TaskTile({Key? key, required this.title, this.checkedBox = false})
+      : super(key: key);
   @override
   State<TaskTile> createState() => _TaskTileState();
 }
@@ -20,7 +21,7 @@ class _TaskTileState extends State<TaskTile> {
       ),
       trailing: Checkbox(
         value: widget.checkedBox,
-        onChanged: (bool? value) {
+        onChanged: (value) {
           setState(() {
             widget.checkedBox = value!;
           });
