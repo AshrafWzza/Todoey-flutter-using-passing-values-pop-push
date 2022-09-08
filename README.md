@@ -9,4 +9,5 @@ A new Flutter project.
 ### ToDo
 - [ ] Dark Theme
 - [ ] Local Database
-- [ ] Listview Separated, Rubber Effect
+- [x] Listview Separated, Rubber Effect
+- [ ] Listview Rubber Effect
