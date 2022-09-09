@@ -19,15 +19,6 @@ class _TasksScreenState extends State<TasksScreen> {
     Task(name: 'Buy Fruits'),
     Task(name: 'Buy Fruits'),
   ];
-  Color? decorationBoxColor;
-  Color? scaffoldColor;
-  void changeCustomColors() {
-    setState(() {
-      decorationBoxColor =
-          Get.isDarkMode ? Colors.white : const Color(0x000000);
-      // scaffoldColor = Get.isDarkMode ? Colors.lightBlueAccent : Colors.white;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +83,6 @@ class _TasksScreenState extends State<TasksScreen> {
                           Get.isDarkMode
                               ? Get.changeTheme(ThemeData.light())
                               : Get.changeTheme(ThemeData.dark());
-                          changeCustomColors();
                         })
                   ],
                 ),
