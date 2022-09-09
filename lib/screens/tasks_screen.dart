@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todoey_flutter/screens/add_task_screen.dart';
 import 'package:todoey_flutter/widgets/task_list.dart';
 import 'package:todoey_flutter/models/task.dart';
+import 'package:get/get.dart';
 
 class TasksScreen extends StatefulWidget {
   const TasksScreen({Key? key}) : super(key: key);
@@ -18,10 +19,20 @@ class _TasksScreenState extends State<TasksScreen> {
     Task(name: 'Buy Fruits'),
     Task(name: 'Buy Fruits'),
   ];
+  Color? decorationBoxColor;
+  Color? scaffoldColor;
+  void changeCustomColors() {
+    setState(() {
+      decorationBoxColor =
+          Get.isDarkMode ? Colors.white : const Color(0x000000);
+      // scaffoldColor = Get.isDarkMode ? Colors.lightBlueAccent : Colors.white;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      //backgroundColor: scaffoldColor,
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           //REceiving value from pop()->addtaskscreen
@@ -55,24 +66,40 @@ class _TasksScreenState extends State<TasksScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
+          Container(
+            color: Colors.lightBlueAccent,
             padding: const EdgeInsets.all(30.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                CircleAvatar(
-                  backgroundColor: Colors.white,
-                  radius: 30.0,
-                  child: Icon(
-                    Icons.list,
-                    size: 40.0,
-                    color: Colors.lightBlueAccent,
-                  ),
+              children: [
+                Row(
+                  children: [
+                    const CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 30.0,
+                      child: Icon(
+                        Icons.list,
+                        size: 40.0,
+                        color: Colors.lightBlueAccent,
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(),
+                    ),
+                    IconButton(
+                        icon: const Icon(Icons.lightbulb),
+                        onPressed: () {
+                          Get.isDarkMode
+                              ? Get.changeTheme(ThemeData.light())
+                              : Get.changeTheme(ThemeData.dark());
+                          changeCustomColors();
+                        })
+                  ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
-                Text(
+                const Text(
                   'Todoey',
                   style: TextStyle(
                     fontSize: 45.0,
@@ -80,7 +107,7 @@ class _TasksScreenState extends State<TasksScreen> {
                     color: Colors.white,
                   ),
                 ),
-                Text(
+                const Text(
                   '10 Tasks',
                   style: TextStyle(
                     color: Colors.white,
@@ -89,11 +116,11 @@ class _TasksScreenState extends State<TasksScreen> {
               ],
             ),
           ),
+          //Two Containers to make border edge radius blue
           Expanded(
             child: Container(
               padding: const EdgeInsets.all(14.0),
               decoration: const BoxDecoration(
-                color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10.0),
                   topRight: Radius.circular(10.0),
