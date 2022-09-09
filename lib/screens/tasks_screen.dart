@@ -23,7 +23,6 @@ class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: scaffoldColor,
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           //REceiving value from pop()->addtaskscreen
