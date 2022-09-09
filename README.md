@@ -6,6 +6,7 @@ A new Flutter project.
 ### Resource
 - Passing values Backwards pop push
 - BottomSheet
+- DarkTheme
 ### ToDo
 - [x] Dark Mode
 - [ ] Local Database
