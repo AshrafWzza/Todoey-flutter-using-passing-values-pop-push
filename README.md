@@ -7,7 +7,7 @@ A new Flutter project.
 - Passing values Backwards pop push
 - BottomSheet
 ### ToDo
-- [ ] Dark Theme
+- [x] Dark Mode
 - [ ] Local Database
 - [x] Listview Separated, Rubber Effect
 - [ ] Listview Rubber Effect
